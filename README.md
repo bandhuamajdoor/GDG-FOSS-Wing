@@ -24,11 +24,13 @@ You will need the following tools installed on your system:
 2. Copy the `contributors/_TEMPLATE` folder and rename it to your roll number (e.g., `contributors/IIT2024245`). All your work goes in here.
 3. **Create a branch** `<roll-number>-task<N>` off `main` before starting (e.g. `IIT2024245-task1`).
 4. Make your changes on that branch.
-5. **Push** the branch to your fork.
-6. Open a **Pull Request into `main` of this original repo** (not your fork).
+5. Add a row for yourself to **`CONTRIBUTORS.md`** (repo root) for this task. See the format in that file.
+6. **Push** the branch to your fork.
+7. Open a **Pull Request into `main` of this original repo** (not your fork).
 
 **Rules:**
 - **One PR per task.** Mixed or messy PRs won't be reviewed.
+- **PRs without a `CONTRIBUTORS.md` row won't be merged.** That row is how we track who's completed what.
 - Terminal screenshots only (`git log --oneline --graph`, etc.). No GitHub web-UI screenshots.
 - Meaningful commit messages. No `"update"`, `"fix"`, `"changes"`, or `"final_final_v2"`.
 - Plagiarism between submissions is checked. Do your own work.
