@@ -2,3 +2,5 @@ Favourite project: Civic Architect
 Civic Architect is an AI-powered web platform built with React and Firebase that allows citizens to report infrastructure issues simply by uploading a photo to the authorities. It uses Gemini API to automatically categorize issues and fill in report details, while providing administrators with a real-time interactive map(using Leaflet) and dashboard to track and resolve the problems.
 
 Github repo link: https://github.com/icyfire8/CIVIC-ARCHITECT
+
+Home city: Kolkata, West Bengal
