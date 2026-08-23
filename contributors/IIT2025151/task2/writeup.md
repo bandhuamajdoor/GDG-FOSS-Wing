@@ -1,75 +1,27 @@
-# Task 2 — Session Tracker Bug Fix
 
-## What the program does
+## 1. What exactly was wrong, and why did it only show up on some inputs? Name the specific line/condition.
 
-The program reads the IN and OUT records of different users and calculates the total time for which each user was active.
 
-For example, if a person enters at 10 and leaves at 100, their active time is 90 minutes.
+The program was not correctly handling multiple sessions of the same person. After every OUT, the duration of the current session was stored in res[p]. This caused the previous session's total to be replaced instead of adding the new session duration to it.
 
-## What was the bug
-
-The bug was that when a person had multiple sessions, the program was not adding the time of all the sessions.
-
-The original code had:
+The original code contain this:
 
 res[p] = d;
 
-This means that whenever a new session was completed, its duration was directly stored in `res[p]`. So if Alice had two sessions of 90 minutes and 15 minutes, the second value 15 replaced the first value 90. Therefore, the program gave Alice 15 minutes instead of 105 minutes.
-
-## How I found the bug
-
-First, I ran the program with `sample_input.txt` and compared the output with the expected output given in the README.
-
-The program gave:
-
-Alice: 15 mins
-
-But the expected output was:
-
-Alice: 105 mins
-
-I noticed that Alice had two sessions. I then checked the code and found that `res[p] = d` was replacing the previous value instead of adding the new session time to it.
-
-## How I fixed it
-
-I changed:
-
-res[p] = d;
-
-to:
+which i have changed to
 
 res[p] = (res[p] || 0) + d;
 
-Here, if the person has no previous session, `res[p]` is undefined, so `0` is used. If the person already has a previous session, the previous value is used and the current duration is added to it.
+Now, the first session is stored as the user's total, and the duration of every later session is added to the existing total
 
-So for Alice:
 
-90 + 15 = 105 minutes
+## 2. Paste your output for tricky_input.txt. Does your fix handle this one correctly? If yes, why is it robust; if no, what class of input still breaks it?
 
-## Testing
+The output for `tricky_input.txt` is:
 
-After making the change, I ran the program again with `sample_input.txt`.
+Dave: 40 mins
+Eve: 60 mins
 
-The output became:
+Yes, my fix handles this input correctly. When Dave appears with another IN at 30, his first IN time of 10 is not overwritten. The second IN is ignored until his OUT at 50, so his active time is calculated as 50 - 10 = 40 minutes.
 
-Alice: 105 mins
-Bob: 45 mins
-Charlie: 30 mins
-
-I also tested `tricky_input.txt`.
-
-For example:
-
-Dave IN 10
-Dave IN 30
-Dave OUT 50
-
-The program gives Dave 20 minutes because the second `IN` replaces the first starting time, so the calculation becomes:
-
-50 - 30 = 20 minutes.
-
-The fix correctly handles users having multiple completed sessions by adding their session durations instead of overwriting the previous total.
-
-## Root cause
-
-The root cause was that the program was storing only the current session duration in `res[p]` instead of accumulating the current duration with the user's previous session duration.
+The fix also keeps the total of multiple completed sessions by adding each new session duration to the existing total.
