@@ -1,1 +1,3 @@
 Recently built a AI for easy Education Access for the OOSC Hackathon. Had to use AI for it but it was fun.
+
+2.Would like to work as an open-source maintainer.
