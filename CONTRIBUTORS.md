@@ -3,7 +3,9 @@
 Every PR must add **one row** to this table for the task it submits. Append your row at the bottom — don't edit anyone else's. If you submit multiple tasks, that's multiple PRs, so you'll add multiple rows over time.
 
 | Roll Number | Name | Task | Date |
-|---|---|---|---|   
+|---|---|---|---|
+| IIT2024245 | Jane Doe | Task 1 | 2026-08-21 |
+| IIT2025063 | Asra Tabassum  | Task 1 | 2026-08-22 |
 | IIT2025235 | Nishant Bharti | Task 4 | 2026-08-21 |
 | IIT2025235 | Nishant Bharti | Task 3 | 2026-08-21 |
 | IIT2025235 | Nishant Bharti | Task 1 | 2026-08-21 |
