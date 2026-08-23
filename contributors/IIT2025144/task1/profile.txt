@@ -1,2 +1,6 @@
 Civic Issues Platform
+<<<<<<< HEAD
 Jamnagar
+=======
+Software Engineer
+>>>>>>> alt-branch
