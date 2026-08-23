@@ -1,0 +1,2 @@
+Instead of calculating the user's total active time , the code was just returning the duration of their most recent session. And because Bob and Charlie only had one sessions each their output was fine. 
+I fixed the code by replacing " res[p]=d " with " res[p]=(res[p] || 0) + d " so that all the user's session duration add up.
