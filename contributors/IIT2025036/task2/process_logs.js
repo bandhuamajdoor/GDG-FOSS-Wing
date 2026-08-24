@@ -20,7 +20,9 @@ function processLog(data) {
         if (!_chk([p, ax, t])) continue;
         
         if (ax === 'IN') {
-            st[p] = parseInt(t);
+            if(st[p] === undefined){
+                st[p] = parseInt(t);
+            }
         } else if (ax === 'OUT') {
             if (st[p] !== undefined) {
                 let d = parseInt(t) - st[p];
