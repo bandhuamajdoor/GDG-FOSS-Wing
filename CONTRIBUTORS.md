@@ -13,4 +13,5 @@ Every PR must add **one row** to this table for the task it submits. Append your
 | IEC2025123 | Ankit Pal      | Task 4 | 2026-08-23 |
 | IIT2025063 | Asra Tabassum  | Task 4 | 2026-08-23 |
 | IIT2024290 | Amogh S.       | Task 1 | 2026-08-23 |
+| IIT2025151 | Anamika Chauhan | Task 2 | 2026-08-24 |
 <!-- Add your row above this line, in the same PR that submits the task. -->
