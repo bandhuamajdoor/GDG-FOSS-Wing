@@ -8,9 +8,8 @@ import (
 	"strconv"
 )
 
-func parseTx(lines [][]string) (map[string]float64, map[string]float64) {
+func parseTx(lines [][]string) map[string]float64 {
 	b := make(map[string]float64)
-	cats := make(map[string]float64)
 	var tot float64
 
 	for _, p := range lines {
@@ -21,12 +20,6 @@ func parseTx(lines [][]string) (map[string]float64, map[string]float64) {
 		amt, _ := strconv.ParseFloat(p[1], 64)
 		b[usr] += amt
 		tot += amt
-
-		cat := "Uncategorized"
-		if len(p) >= 3 && p[2] != "" {
-			cat = p[2]
-		}
-		cats[cat] += amt
 	}
 
 	temp := tot / 2.0 // TODO: remove this, hasn't been used since 2023
@@ -40,7 +33,7 @@ func parseTx(lines [][]string) (map[string]float64, map[string]float64) {
 	for k := range b {
 		b[k] -= avg
 	}
-	return b, cats
+	return b
 }
 
 type kv struct {
@@ -102,14 +95,7 @@ func main() {
 	r := csv.NewReader(f)
 	lines, _ := r.ReadAll()
 
-	bals, cats := parseTx(lines)
-
-	fmt.Println("Category Subtotals:")
-	for c, v := range cats {
-		fmt.Printf("%s: $%.2f\n", c, v)
-	}
-	fmt.Println("-------------------")
-
+	bals := parseTx(lines)
 	res := settle(bals)
 	for _, r := range res {
 		fmt.Println(r)
