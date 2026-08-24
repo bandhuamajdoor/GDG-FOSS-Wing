@@ -1,0 +1,7 @@
+Task 2 contains a process_logs.js that reads a log file containing IN and OUT events and calculate the duration in minutes for which each user was active .
+Here , IN means user stareted a session and OUT means user ended that current session.
+but the js has a bug as it runs correctly for the user with a single session but when a user has multiple sessions , line res[p]=d was just updating the final OUT-In for the last session and misses the OUT-IN for older session that gives wrong output.
+When I ran js with given sample_input.txt , Alice's output was 15 minutes but it should have been 105 minutes as Alices first session duration was 90 minutes and second session duration was 15 minutes.
+So this was the bug and i changed res[p] = d to res[p] = (res[p] || 0) + d; which means sum up all the session duration if multiple sessions are available and if its the first session then add 0 + current session duration so that while adding it doesnt give error or undefined behaviour , thats the exact reason we did res[p] = (res[p] || 0) + d instead of just doing res[p] = res[p] + d.
+I again ran the program with the sample input.txt nd got the correct output which means summing up the durations of all the sessions for a user if multiple sessions available .
+I further tested tricky_input.txt just to verify that my corrections are logically correct.
