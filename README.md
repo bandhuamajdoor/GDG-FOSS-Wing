@@ -55,8 +55,6 @@ We keep exactly one git task, because branching and conflict resolution are genu
 - `screenshot-1.png`: `git status` (or the conflict markers) *before* resolving.
 - `screenshot-2.png`: `git log --oneline --graph` *after* resolution.
 
-**Interactive checkpoint:** Answer the questions in your `task1/answers.md` template.
-
 ---
 
 ## Task 2 — Fix a Real Bug in the Sandbox
@@ -104,7 +102,7 @@ Write 10–15 lines explaining your **Task 2 bug fix** to someone who's never se
 ## How We Evaluate
 
 We read PRs properly. Rough weighting:
-- **Task 1** — pass/fail gate. Clean git history + coherent checkpoint answers = pass.
+- **Task 1** — pass/fail gate. Clean git history = pass.
 - **Task 2** — the biggest signal. Correct root-cause reasoning and honest robustness analysis matter more than a working patch.
 - **Task 3** — do you actually understand code you didn't write, and can you extend it without breaking its shape?
 - **Task 4** — can you communicate? Genuine, in-your-own-words explanation.
