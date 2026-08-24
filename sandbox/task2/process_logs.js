@@ -20,31 +20,18 @@ function processLog(data) {
         if (!_chk([p, ax, t])) continue;
         
         if (ax === 'IN') {
-
-            if(st[p] !== undefined){
-                console.error(`Invalid input: ${p} logged IN but was already logged IN`);
-                continue;
-            }
-
             st[p] = parseInt(t);
-            if(res[p] === undefined)    res[p] = 0;
-
         } else if (ax === 'OUT') {
-
-            if(st[p] === undefined){
-                console.error(`Invalid input: ${p} logged OUT but was never logged IN`);
-                continue;
-            }
-
+            if (st[p] !== undefined) {
                 let d = parseInt(t) - st[p];
                 if (d < 0) d = 0;
                 
                 // Calculate active duration
-                res[p] += d; 
+                res[p] = d; 
                 
                 let temp = st[p]; // <-- The 3-year-old temp variable
                 delete st[p];
-
+            }
         }
     }
     return res;
