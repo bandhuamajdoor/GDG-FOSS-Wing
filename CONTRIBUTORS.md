@@ -5,6 +5,7 @@ Every PR must add **one row** to this table for the task it submits. Append your
 | Roll Number | Name | Task | Date |
 |---|---|---|---|
 | IIT2024245 | Jane Doe | Task 1 | 2026-08-21 |
+| IEC2025123 | Ankit Pal | Task 3 | 2026-08-24 |
 | IEC2025123 | Ankit Pal | Task 2 | 2026-08-22 |
 | IEC2025123 | Ankit Pal | Task 1 | 2026-08-22 |
 | IIB2025014 | Harjas | Task 2 | 2026-08-22 |
