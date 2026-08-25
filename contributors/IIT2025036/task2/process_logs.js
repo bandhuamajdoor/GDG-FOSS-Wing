@@ -29,14 +29,14 @@ function processLog(data) {
                 if (d < 0) d = 0;
                 
                 // Calculate active duration
-                res[p] = (res[p] || 0) + d;// this is Corrected here 
-            
+                res[p] =(res[p] || 0)+d ; 
+                
                 let temp = st[p]; // <-- The 3-year-old temp variable
                 delete st[p];
             }
         }
     }
-    return   res;
+    return res;
 }
 
 if (process.argv.length < 3) {
