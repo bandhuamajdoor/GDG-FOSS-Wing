@@ -36,7 +36,7 @@ function processLog(data) {
             }
         }
     }
-    return   res;
+    return res;
 }
 
 if (process.argv.length < 3) {

@@ -1,0 +1,3 @@
+The root cause of the problem was that the code was not adding the durations of a particular user in case he/she has visited multiple times and it was only taking the last duration as the answer for that user. I corrected it by initializing the res array to 0 for any user the moment he/she enters for the first time and then it adds the durations for that user subsequently each time he/she visits.
+
+Also for users logging IN consecutively before logging OUT or for users logging OUT consecutively, I have added an output which displays "Invalid input"
