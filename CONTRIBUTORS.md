@@ -27,6 +27,7 @@ Every PR must add **one row** to this table for the task it submits. Append your
 | IIT2025036 | Kushagra Raghu.| Task 2 | 2026-08-24 |
 | IIT2025063 | Asra Tabassum  | Task 4 | 2026-08-23 |
 | IIT2024290 | Amogh S.       | Task 1 | 2026-08-23 |
+| IIT2025036 | Kushagra Raghu.| Task 4 | 2026-08-24 |
 | IIT2025282 | Dhruv Chhabra  | Task 1 | 2026-08-24 |
 | IIT2024282 | Dhruv          | Task 2 | 2026-08-23 |
 | IIT2025036 | Kushagra Raghu.| Task 3 | 2026-08-24 |
@@ -34,4 +35,3 @@ Every PR must add **one row** to this table for the task it submits. Append your
 | IIT2025282 | Dhruv          | Task 3 | 2026-08-24 |
 | IIT2025151 | Anamika Chauhan | Task 2 | 2026-08-24 |
 | IIT2024282 | Dhruv          | Task 4 | 2026-08-23 |
-<!-- Add your row above this line, in the same PR that submits the task. -->
