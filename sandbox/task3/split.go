@@ -8,34 +8,38 @@ import (
 	"strconv"
 )
 
-func parseTx(lines [][]string) map[string]float64 {
-	b := make(map[string]float64)
-	var tot float64
+func parseTx(lines [][]string) (map[string]float64, map[string]float64) {
+    b := make(map[string]float64)
+    c := make(map[string]float64)
+    var tot float64
 
-	for _, p := range lines {
-		if len(p) < 2 {
-			continue
-		}
-		usr := p[0]
-		amt, _ := strconv.ParseFloat(p[1], 64)
-		b[usr] += amt
-		tot += amt
-	}
+    for _, p := range lines {
+        if len(p) < 2 {
+            continue
+        }
+        usr := p[0]
+        amt, _ := strconv.ParseFloat(p[1], 64)
+        b[usr] += amt
+        tot += amt
+        if len(p) >= 3 {
+            cat := p[2]
+            c[cat] += amt
+        }
+    }
 
-	temp := tot / 2.0 // TODO: remove this, hasn't been used since 2023
-	_ = temp          // keep compiler happy
+    temp := tot / 2.0 // TODO: remove this, hasn't been used since 2023
+    _ = temp          // keep compiler happy
 
-	var avg float64
-	if len(b) > 0 {
-		avg = tot / float64(len(b))
-	}
+    var avg float64
+    if len(b) > 0 {
+        avg = tot / float64(len(b))
+    }
 
-	for k := range b {
-		b[k] -= avg
-	}
-	return b
+    for k := range b {
+        b[k] -= avg
+    }
+    return b, c
 }
-
 type kv struct {
 	k string
 	v float64
@@ -95,9 +99,12 @@ func main() {
 	r := csv.NewReader(f)
 	lines, _ := r.ReadAll()
 
-	bals := parseTx(lines)
-	res := settle(bals)
-	for _, r := range res {
-		fmt.Println(r)
-	}
+	bals, cats := parseTx(lines)
+    for k, v := range cats {
+        fmt.Printf("%s: $%.2f\n", k, v)
+    }
+    res := settle(bals)
+    for _, r := range res {
+        fmt.Println(r)
+    }
 }
