@@ -20,23 +20,24 @@ function processLog(data) {
         if (!_chk([p, ax, t])) continue;
         
         if (ax === 'IN') {
-            if(st[p] === undefined){
-                st[p] = parseInt(t);
-            }
+            if(st[p]==undefined){    // fix 1: we delete intime on exit, hence check if an intime already exists
+            st[p] = parseInt(t);
+        }
         } else if (ax === 'OUT') {
             if (st[p] !== undefined) {
                 let d = parseInt(t) - st[p];
                 if (d < 0) d = 0;
-                
+
+                if(res[p]==undefined) res[p]=0;   //fix 2.0:initialise total time 
                 // Calculate active duration
-                res[p] =(res[p] || 0)+d ; 
+                res[p]+=d;                        //fix 2.0: add duration incase of multiple shifts,dont update
                 
                 let temp = st[p]; // <-- The 3-year-old temp variable
-                delete st[p];
+                delete st[p];         
             }
         }
     }
-    return   res;
+    return res;
 }
 
 if (process.argv.length < 3) {
