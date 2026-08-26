@@ -1,0 +1,8 @@
+Alice IN 10
+Bob IN 15
+Alice OUT 100
+Charlie IN 120
+Bob OUT 60
+Charlie OUT 150
+Alice IN 200
+Alice OUT 215
